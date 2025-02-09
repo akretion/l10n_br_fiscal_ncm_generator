@@ -77,7 +77,7 @@ for i, row in df_tipi.iterrows():
         odoo_id = f"{odoo_id}_{ncm_exception}"
     df.at[i, "id"] = odoo_id
     df.at[i, "code"] = f"{row['ncm'][:4]}.{row['ncm'][4:6]}.{row['ncm'][6:8]}"
-    df.at[i, "exception"] = row['exception']
+    df.at[i, "exception"] = row['exception'].replace("Ex ", "")
     df.at[i, "name"] = row['concat_desc']
     ipi_value = row['ipi']
     if isinstance(ipi_value, float):
